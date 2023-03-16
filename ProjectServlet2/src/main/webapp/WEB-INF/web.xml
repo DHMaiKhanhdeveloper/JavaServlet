@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
+  <display-name>ProjectServlet1</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  
+ <servlet>
+  	<servlet-name>hello</servlet-name>
+  	<servlet-class>uit.servlet.LifecycleServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>hello</servlet-name>
+  	<url-pattern>/demo-lifecycleservlet</url-pattern>
+  </servlet-mapping> 
+  <!-- http://localhost:8080/ProjectServlet1/demo-lifecycleservlet -->
+  
+  <servlet>
+      <servlet-name>my-servlet</servlet-name>
+      <servlet-class>uit.servlet.MyServletConfig</servlet-class>
+      <init-param>
+            <param-name>name</param-name>
+            <param-value>nameKhanh</param-value>
+      </init-param>
+      
+      <init-param>
+            <param-name>school</param-name>
+            <param-value>schoolUIT</param-value>
+      </init-param>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>my-servlet</servlet-name>
+        <url-pattern>/check</url-pattern>
+    </servlet-mapping>
+    
+
+    
+
+    
+   
+    
+    <context-param>
+		<param-name>sdt</param-name>
+		<param-value>0987654321</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>age</param-name>
+		<param-value>18</param-value>
+	</context-param>
+	
+	<context-param>
+		<param-name>jdbc</param-name>
+		<param-value>mysql</param-value>
+	</context-param>
+	
+	
+	<filter>
+	   <filter-name>LogFilter</filter-name>
+	   <filter-class>Servlet_Filter.LogFilter</filter-class>
+	  	<init-param>
+	      <param-name>count</param-name>
+	      <param-value>10</param-value>
+   		</init-param>
+	</filter>
+	<filter-mapping>
+	   <filter-name>LogFilter</filter-name>
+	   <url-pattern>/session1</url-pattern>
+	</filter-mapping>
+	
+	
+	  <servlet>
+        <servlet-name>Validate</servlet-name>
+        <servlet-class>uit.testRequestDispatcher.Validate</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Welcome</servlet-name>
+        <servlet-class>uit.testRequestDispatcher.Welcome</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Validate</servlet-name>
+        <url-pattern>/Validate</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Welcome</servlet-name>
+        <url-pattern>/Welcome</url-pattern>
+    </servlet-mapping>
+    <welcome-file-list>
+        <welcome-file>index.html</welcome-file>
+      </welcome-file-list>
+
+</web-app>
